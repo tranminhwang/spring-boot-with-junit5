@@ -8,7 +8,6 @@ public class CustomerService {
     public CustomerService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
-
     public Iterable<Customer> getAllCustomers() {
         return customerRepository.findAll();
     }

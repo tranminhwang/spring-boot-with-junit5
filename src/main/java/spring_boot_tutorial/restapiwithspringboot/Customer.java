@@ -15,8 +15,6 @@ public class Customer {
     private String firstName;
     private String lastName;
 
-    public Customer(){} // Default constructors
-
     public Integer getId() {
         return id;
     }

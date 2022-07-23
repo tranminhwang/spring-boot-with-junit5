@@ -17,9 +17,8 @@ public class CustomerController {
         return service.getAllCustomers();
     }
 
-    @GetMapping(path = "{id}")
-    public Customer findCustomerById(@PathVariable("id") Integer id) {
-        System.out.println(id);
+    @GetMapping(path = "{customerId}")
+    public Customer findCustomerById(@PathVariable("customerId") Integer id) {
         return service.findCustomerById(id);
     }
 

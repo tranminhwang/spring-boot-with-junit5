@@ -12,6 +12,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    private String email;
     private String firstName;
     private String lastName;
 
@@ -23,8 +24,15 @@ public class Customer {
         this.id = id;
     }
 
+    public  String getEmail() {
+        return email;
+    }
     public String getFirstName() {
         return firstName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setFirstName(String firstName) {

@@ -8,16 +8,15 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import spring_boot_tutorial.restapiwithspringboot.mock.CustomerMock;
 
 @ExtendWith(MockitoExtension.class)
 
-class RestApiWithSpringBootApplicationTests {
-    Customer genMockCustomer(String firstName, String lastName) {
-        Customer customer = new Customer();
-        customer.setFirstName(firstName);
-        customer.setLastName(lastName);
-        return customer;
-    }
+class CustomerServiceTests {
+
+    @Autowired
+    private CustomerMock customerMock;
 
     @Mock
     private CustomerRepository repository;
@@ -39,7 +38,7 @@ class RestApiWithSpringBootApplicationTests {
     @Test
     void it_should_add_customer() {
         // when
-        Customer mockCustomer = genMockCustomer("Wang", "Minh Tran");
+        Customer mockCustomer = customerMock.genMockCustomer("Wang", "Minh Tran", "j2team.tranminhquang@gmail.com");
         underTest.addCustomer(mockCustomer);
         // then
         ArgumentCaptor<Customer> customerArgumentCaptor =
@@ -52,7 +51,7 @@ class RestApiWithSpringBootApplicationTests {
     @Test
     void find_customer_id() {
         // when
-        Customer mockCustomer =  genMockCustomer("Wang", "Minh Tran");
+        Customer mockCustomer =  customerMock.genMockCustomer("Wang", "Minh Tran", "j2team.tranminhquang@gmail.com");
         underTest.addCustomer(mockCustomer);
         // then
         // ...waiting for me
